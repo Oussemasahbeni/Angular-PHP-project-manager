@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="addsection">
+        <div class="text-center">
+            <h1>Add Task</h1>
+        </div>
+
+        <div style="width:50%;margin:auto" class="form-group row">
+            <form [formGroup]="addForm" novalidate class="form-group row">
+                <div class="row">
+                    <div class="col-md-6 div ">Project id </div>
+                    <div class="col-md-6 "><input type="text" class="form-control" name="project_id"
+                            formControlName="Project_id" readonly></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Member ID </div>
+                    <div class="col-md-6"><input type="text" class="form-control" name="memberid"
+                            formControlName="memberID" placeholder="Member ID" readonly></div>
+                </div>
+                <div class="error-msg"
+                    *ngIf="addForm.get('memberID').hasError('min') || addForm.get('memberID').hasError('pattern')">
+                    Membeer ID should be greater than 0
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Task ID<span style="color:red;">* </span></div>
+                    <div class="col-md-6"><input [class.is-invalid]="id.invalid && id.touched" class="form-control"
+                            type="email" name="taskID" formControlName="taskID" placeholder="Task ID" required=""></div>
+                </div>
+                <div *ngIf="(id.invalid && id.touched) || id.dirty">
+                    <small *ngIf="id.errors?.required" class="text-danger error-msg">Member ID is
+                        required</small>
+                </div>
+                <div class=" text-danger error-msg"
+                    *ngIf="addForm.get('taskID').hasError('min') || addForm.get('taskID').hasError('pattern')">
+                    <small> Contains only numbers and it
+                        must be greater than 0 .</small>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Description</div>
+                    <div class="col-md-6"><input type="text" class="form-control" name="description"
+                            formControlName="description" placeholder="Description" required="">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 div1">Status</div>
+                    <select class="col-md-6" name="status" formControlName="status">
+                        <option value="ongoing">In Progress</option>
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Planned">Planned</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Due Date</div>
+                    <div class="col-md-6"><input type="date" class="form-control" name="due_date"
+                            formControlName="due_date" placeholder="Due Date" required="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-dark" (click)="onSubmit()">ADD Task </button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

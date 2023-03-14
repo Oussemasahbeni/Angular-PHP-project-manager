@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="addsection">
+        <div class="text-center">
+            <h1>Add Project</h1>
+        </div>
+
+        <div style="width:50%;margin:auto" class="form-group row">
+            <form [formGroup]="addForm" novalidate class="form-group row">
+                <div class="row">
+                    <div class="col-md-6 div">Project ID <span style="color:red;">* </span></div>
+                    <div class="col-md-6"><input [class.is-invalid]="id.invalid && id.touched" type="text"
+                            class="form-control" name="id" formControlName="id" placeholder="Project ID" required="">
+                    </div>
+                </div>
+                <div *ngIf="(id.invalid && id.touched) || id.dirty">
+                    <small *ngIf="id.errors?.required" class="text-danger error-msg">Project ID is
+                        required</small>
+                </div>
+                <div class=" text-danger error-msg"
+                    *ngIf="addForm.get('id').hasError('min') || addForm.get('id').hasError('pattern')">
+                    <small>Contains only numbers and it
+                        must be greater than 0 .</small>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Description </div>
+                    <div class="col-md-6"><input class="form-control" type="text" name="description"
+                            formControlName="description" placeholder="Description" required="">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Start date <span style="color:red;">* </span> </div>
+                    <div class="col-md-6"><input type="date" class="form-control" name="start_date"
+                            formControlName="start_date" required=""></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">End date <span style="color:red;">* </span> </div>
+                    <div class="col-md-6"><input type="date" class="form-control" name="end_date"
+                            formControlName="end_date" required=""></div>
+                    <small>
+                        <div *ngIf="addForm.errors?.endDateInvalid"><small class="text-danger error-msg">End date must
+                                be after start date.</small>
+                        </div>
+
+                    </small>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Name </div>
+                    <div class="col-md-6"><input type="text" class="form-control" name="name" formControlName="name"
+                            placeholder="Name" required="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-dark" (click)="onSubmit()">ADD PROJECT</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

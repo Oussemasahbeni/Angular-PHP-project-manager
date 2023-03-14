@@ -1,0 +1,54 @@
+<div class="zz">
+    <div class="header">
+        <h1 class="title">Empower your team with
+            PROJEXUS</h1>
+        <p class="tagline">Streamline your projects, simplify your workflow</p>
+        <div class="cta" *ngIf="!isUserLoggedIn">
+            <a routerLink="/signup" class="cta-button">Get Started</a>
+        </div>
+
+    </div>
+    <div class="zz">
+        <div class="features">
+            <div class="feature card ">
+                <h2 class="feature-title ">Secure Login and Signup</h2>
+                <p class="feature-description">Create a secure account with ease and manage your projects in one place.
+                </p>
+            </div>
+            <div class="feature card ">
+                <h2 class="feature-title">Efficient Task and Project Management</h2>
+                <p class="feature-description">Efficiently manage tasks, projects and team members with an intuitive and
+                    customizable project management platform.</p>
+            </div>
+            <div class="feature card ">
+                <h2 class="feature-title ">Data Table Pagination and Filtering</h2>
+                <p class="feature-description">Easily navigate through large sets of data with data table pagination and
+                    filtering.</p>
+            </div>
+            <div class="feature card ">
+                <h2 class="feature-title">Project Timeline</h2>
+                <p class="feature-description">Visualize your project schedule and deadlines on a timeline to keep track
+                    of progress and stay on schedule.</p>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
+            </g>
+        </svg>
+    </div>
+    <div class="content flex">
+        <p>By.Oussema Sahbeni </p>
+    </div>
+
+</div>

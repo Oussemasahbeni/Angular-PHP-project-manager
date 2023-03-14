@@ -1,0 +1,90 @@
+.list{
+    background-color: white;
+    box-shadow: 0px 2px 12px 0px #e3e3e3;
+    margin-top: 60px;  
+    
+}
+.list th{
+    background-color: #000000;
+    padding: 17px;
+    color: white;
+    border: 0;
+    outline: 0;
+}
+.btn2{
+    margin-right: 17px;
+}
+.text{color:white;
+    text-align: center;
+    margin: auto;
+    width: 50%;
+    border: 3px solid white;
+    padding: 10px;
+   margin-top: 20px;
+   margin-bottom: 50px !important;}
+.table-stripped{
+    border: 0.2rem solid white !important;
+}
+
+
+
+ ::ng-deep .ngx-pagination  {
+    position: relative;
+  right: 50%;
+  left: 40%;
+  font-size: 15px;
+  color:white !important;
+  border-color: aliceblue;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+
+
+::ng-deep .ngx-pagination ::content {
+    color: #e3e3e3;
+}
+th.align-center{
+    vertical-align: middle;
+}
+.lol {
+    color:transparent!important;
+    
+    display: block;
+    margin-left: 1%;
+    padding: 0%;
+}
+::ng-deep .mat-sort-header-container:not(.mat-sort-header-sorted) .mat-sort-header-arrow {
+    opacity: 0.54 !important;
+    transform: translateY(0px) !important;
+  }
+  
+  .custom-pagination ::ng-deep .ngx-pagination a, .custom-pagination .ngx-pagination button {
+    color: white !important;
+    
+  }
+  .custom-input {
+    color: white;
+    background: transparent;
+    border-color: #e3e3e3;
+    font-size: 20px;
+    padding: 10px;
+    width: 200px;
+    height: 40px;
+    margin-left: 1065px;
+    margin-bottom: 5px;
+    
+
+  }
+  ::placeholder{
+    color: white;
+  }
+
+  .buttonspace {
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  td{
+    padding-left: 22px;
+  }

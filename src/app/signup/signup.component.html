@@ -1,0 +1,100 @@
+<div class="login-box">
+    <h2>Sign Up</h2>
+    <form [formGroup]="addForm">
+        <div class="user-box">
+            <input [class.is-invalid]="firstname.invalid && firstname.touched" type="text" name="" required=""
+                formControlName="firstname">
+            <label>First Name <span style="color:red;">* </span></label>
+            <div *ngIf="(firstname.invalid && firstname.touched) || firstname.dirty">
+                <small *ngIf="firstname.errors?.required" class="text-danger error-msg">First Name is
+                    required</small>
+                <small *ngIf="firstname.errors?.pattern" class="text-danger error-msg">First Name can only contain
+                    letters
+                </small>
+            </div>
+        </div>
+
+
+        <div class="user-box">
+            <input [class.is-invalid]="lastname.invalid && lastname.touched" type="text" name="" required=""
+                formControlName="lastname">
+            <label>Last Name<span style="color:red;">* </span></label>
+        </div>
+        <div *ngIf="(lastname.invalid && lastname.touched) || lastname.dirty">
+            <small *ngIf="lastname.errors?.required" class="text-danger error-msg">Last Name is
+                required.</small>
+            <small *ngIf="lastname.errors?.pattern" class="text-danger error-msg">Last Name can only contain letters.
+            </small>
+        </div>
+        <div class="user-box">
+            <input [class.is-invalid]="email.invalid && email.touched" type="email" name="" required=""
+                formControlName="email">
+            <label>Email <span style="color:red;">* </span></label>
+        </div>
+        <div *ngIf="(email.invalid && email.touched) || email.dirty">
+            <small *ngIf="email.errors?.required" class="text-danger error-msg">Email is
+                required.</small>
+            <small *ngIf="email.errors?.pattern" class="text-danger error-msg">Please provide a valid
+                email
+                address.</small>
+        </div>
+        <div class="user-box">
+            <label>Gender<span style="color:red;">* </span></label>
+            <select formControlName="gender" required>
+                <option value="">Please select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div *ngIf="(gender.invalid && gender.touched) || gender.dirty">
+            <small *ngIf="gender.errors?.required" class="text-danger error-msg">Gender is required</small>
+        </div>
+
+        <div class="user-box">
+            <ng5-slider class="custom-slider" [class.is-invalid]="age.invalid && age.touched" type="age" name=""
+                required="" formControlName="age" [options]="sliderOptions"></ng5-slider>
+            <label>Age<span style="color:red;">* </span></label>
+        </div>
+        <!--<div *ngIf="(age.invalid && age.touched) || age.dirty">
+            <small *ngIf="age.errors?.required" class="text-danger error-msg">Age is
+                required.</small> 
+        </div>-->
+        <div class="user-box user">
+            <input [class.is-invalid]="username.invalid && username.touched" type="text" name="" required=""
+                formControlName="username">
+            <label>Username<span style="color:red;">* </span></label>
+        </div>
+        <div *ngIf="(username.invalid && username.touched) || username.dirty">
+            <small *ngIf="username.errors?.required" class="text-danger error-msg">Username is
+                required.</small>
+            <small *ngIf="username.errors?.pattern" class="text-danger error-msg">Username can only contain letters and
+                numbers.
+            </small>
+        </div>
+        <div class="user-box">
+            <input [type]="visibility ? 'text' : 'password'" [(ngModel)]="password1"
+                [class.is-invalid]="password.invalid && password.touched" type="password" name="" required=""
+                formControlName="password" [(ngModel)]="password1 ">
+
+            <fa-icon [icon]="faeye" (click)="toggleVisibility()" *ngIf="!visibility"></fa-icon>
+            <fa-icon [icon]="faeyes" (click)="toggleVisibility()" *ngIf="visibility"></fa-icon>
+
+            <label>Password<span style="color:red;">* </span></label>
+        </div>
+        <div *ngIf="(password.invalid && password.touched) || password.dirty">
+            <small *ngIf="password.errors?.required" class="text-danger error-msg">Password is
+                required.</small>
+            <small *ngIf="password.errors?.pattern " class="text-danger error-msg">Your password must be at least 8
+                characters long, contain at least one digit, one lowercase letter, one uppercase letter, and one special
+                character (e.g. !, @, #, $, %, &, etc.).</small>
+
+        </div>
+        <div>
+            <p>Already have an account? <a routerLink="/login">Click here to login.</a></p>
+        </div>
+        <button (click)="onSubmit()">
+            Submit
+        </button>
+    </form>
+</div>

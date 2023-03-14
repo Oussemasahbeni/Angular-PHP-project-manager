@@ -1,0 +1,48 @@
+<div class="container container-bg">
+    <h1 class="text">View All members</h1>
+    <div class="container">
+        <table matSort (matSortChange)="sortData($event)" class=" table table-stripped" memberID="example">
+            <thead class="list">
+                <th class="align-center">Project id</th>
+                <th mat-sort-header="pid" class="align-center">Member id</th>
+                <th class="align-center">MemberEmail</th>
+
+                <th mat-sort-header="role">Role</th>
+                <th class="align-center">Name</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let member of MEMBERS | paginate: { itemsPerPage: 10, currentPage: p } " class="table-dark">
+                    <td>{{member.Project_id}}</td>
+                    <td class="id">{{member.memberID}}</td>
+                    <td>{{member.Member_email}}</td>
+
+                    <td>{{member.Role}}</td>
+                    <td>{{member.name}}</td>
+                    <td> <button class="btn btn-success buttonspace"
+                            (click)="onEdit(member.memberID,member.Project_id)"><fa-icon [icon]="faPen"></fa-icon>
+                            Edit</button>
+
+
+                        <button (click)="deletemember(member.memberID)" class="btn btn-danger"><fa-icon
+                                [icon]="fatrash"></fa-icon>
+                            Delete</button>
+                        <button class="btn btn-primary buttonspace"
+                            (click)="onMemm(member.Project_id,member.memberID)"><fa-icon [icon]="faplus"></fa-icon> Add
+                            Tasks</button>
+                        <button class="btn btn-info buttonspace"
+                            (click)="onMem(member.Project_id,member.memberID)"><fa-icon [icon]="faeye"></fa-icon> View
+                            Tasks</button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <div class="lol">
+            <pagination-controls (pageChange)="p = $event" class="custom-pagination"></pagination-controls>
+        </div>
+    </div>
+
+</div>

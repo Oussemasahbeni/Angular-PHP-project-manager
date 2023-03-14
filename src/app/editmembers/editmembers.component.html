@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="addsection">
+        <div class="text-center">
+            <h1>Edit member</h1>
+        </div>
+
+        <div style="width:50%;margin:auto" class="form-group row">
+            <form [formGroup]="addForm" novalidate class="form-group row">
+                <div class="row">
+                    <div class="col-md-6 div">Project ID</div>
+                    <div class="col-md-6"><input type="text" class="form-control" name="id" formControlName="Project_id"
+                            readonly></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Member ID</div>
+                    <div class="col-md-6"><input class="form-control" type="text" name="MemberID"
+                            formControlName="memberID" readonly></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Member Email</div>
+                    <div class="col-md-6"><input [class.is-invalid]="Member_email.invalid && Member_email.touched"
+                            class="form-control" type="email" name="memberemail" formControlName="Member_email"
+                            placeholder="email@example.com" required=""></div>
+                </div>
+                <div *ngIf="(Member_email.invalid && Member_email.touched) || Member_email.dirty">
+                    <small *ngIf="Member_email.errors?.required" class="text-danger error-msg">Member email is
+                        required</small>
+                    <!--question mark(?) is a safe navigation operator-->
+                    <small *ngIf="Member_email.errors?.pattern" class="text-danger error-msg">Please provide a valid
+                        email
+                        address</small>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Role</div>
+                    <div class="col-md-6"><input type="text" class="form-control" name="Role" formControlName="Role">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 div">Name</div>
+                    <div class="col-md-6"><input type="text" class="form-control" name="name" formControlName="name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-dark" (click)="onEdit()">EDIT Member</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

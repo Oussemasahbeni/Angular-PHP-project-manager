@@ -1,0 +1,46 @@
+<div class="container container-bg">
+    <h1 class="text">View All tasks</h1>
+    <div class="container">
+
+
+
+        <table matSort (matSortChange)="sortData($event)" class=" table table-stripped" taskID="example">
+            <thead class="list">
+                <th class="align-center">Project id</th>
+                <th class="align-center">Task id</th>
+                <th class="align-center">Member id</th>
+                <th class="align-center">Description</th>
+                <th mat-sort-header="status" class="align-center">Status</th>
+                <th mat-sort-header="date" class="align-center">Deadline</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of tasks | paginate: { itemsPerPage: 10, currentPage: p } " class="table-dark">
+                    <td>{{task.Project_id}}</td>
+                    <td class="id">{{task.taskID}}</td>
+                    <td class="id">{{task.memberID}}</td>
+                    <td>{{task.description}}</td>
+                    <td>{{task.status}}</td>
+                    <td class="id">{{task.due_date}}</td>
+                    <td> <button class="btn btn-success buttonspace"
+                            (click)="onEdit(task.memberID,task.Project_id,task.taskID)"><fa-icon
+                                [icon]="faPen"></fa-icon>
+                            Edit</button>
+
+
+                        <button (click)="deletetask(task.taskID)" class="btn btn-danger"><fa-icon
+                                [icon]="fatrash"></fa-icon>
+                            Delete</button>
+
+
+                </tr>
+            </tbody>
+        </table>
+
+
+        <div class="lol">
+            <pagination-controls (pageChange)="p = $event" class="custom-pagination"></pagination-controls>
+        </div>
+    </div>
+
+</div>
